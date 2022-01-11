@@ -3,98 +3,98 @@ EMPLOYEES = [
         "id": 1,
         "name": "Jessica Younker",
         "address": "85387 Margarete Ramp",
-        "manager": "false",
-        "locationId": 1
+        "is_is_managermanager": "false",
+        "location_id": 1
     },
     {
         "id": 2,
         "name": "Jordan Nelson",
         "address": "5227 Karley Mission",
-        "manager": "false",
-        "locationId": 2
+        "is_manager": "false",
+        "location_id": 2
     },
     {
         "id": 3,
         "name": "Zoe LeBlanc",
         "address": "73082 Barrows Points",
-        "manager": "false",
-        "locationId": 1
+        "is_manager": "false",
+        "location_id": 1
     },
     {
         "name": "Meg Ducharme",
         "address": "477 Damaris Oval",
-        "manager": "false",
-        "locationId": 2,
+        "is_manager": "false",
+        "location_id": 2,
         "id": 4
     },
     {
         "name": "Hannah Hall",
         "address": "14602 Schumm Crossroad",
-        "manager": "false",
-        "locationId": 3,
+        "is_manager": "false",
+        "location_id": 3,
         "id": 5
     },
     {
         "name": "Emily Lemmon",
         "address": "2067 Abshire Road",
-        "manager": "false",
-        "locationId": 1,
+        "is_manager": "false",
+        "location_id": 1,
         "id": 6
     },
     {
         "name": "Jordan Castelloe",
         "address": "42368 Alford River",
-        "manager": "false",
-        "locationId": 2,
+        "is_manager": "false",
+        "location_id": 2,
         "id": 7
     },
     {
         "name": "Leah Gwin",
         "address": "997 Jude Haven",
-        "manager": "false",
-        "locationId": 1,
+        "is_manager": "false",
+        "location_id": 1,
         "id": 8
     },
     {
         "name": "Caitlin Stein",
         "address": "9480 Sipes Forest",
-        "manager": "false",
-        "locationId": 2,
+        "is_manager": "false",
+        "location_id": 2,
         "id": 9
     },
     {
         "name": "Greg Korte",
         "address": "083 Alex Walks",
-        "manager": "false",
-        "locationId": 3,
+        "is_manager": "false",
+        "location_id": 3,
         "id": 10
     },
     {
         "name": "Charisse Lambert",
         "address": "14560 Schinner Knoll",
-        "manager": "false",
-        "locationId": 1,
+        "is_manager": "false",
+        "location_id": 1,
         "id": 11
     },
     {
         "name": "Madi Peper",
         "address": "04592 Ryan Field",
-        "manager": "false",
-        "locationId": 2,
+        "is_manager": "false",
+        "location_id": 2,
         "id": 12
     },
     {
         "name": "Jenna Solis",
         "address": "2456 Norberto Mission",
-        "manager": "false",
-        "locationId": 1,
+        "is_manager": "false",
+        "location_id": 1,
         "id": 14
     },
     {
         "name": "Eric \"Macho Man\" Taylor",
         "address": "0209 Harvey Mission",
-        "manager": "false",
-        "locationId": 3,
+        "is_manager": "false",
+        "location_id": 3,
         "id": 15
     }
 ]
