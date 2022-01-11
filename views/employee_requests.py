@@ -2,72 +2,86 @@ EMPLOYEES = [
     {
         "id": 1,
         "name": "Jessica Younker",
-        "email": "jessica@younker.com"
+        "address": "85387 Margarete Ramp",
+        "locationId": 1
     },
     {
         "id": 2,
         "name": "Jordan Nelson",
-        "email": "jordan@nelson.com"
+        "address": "5227 Karley Mission",
+        "locationId": 2
     },
     {
         "id": 3,
         "name": "Zoe LeBlanc",
-        "email": "zoe@leblanc.com"
+        "address": "73082 Barrows Points",
+        "locationId": 1
     },
     {
         "name": "Meg Ducharme",
-        "email": "meg@ducharme.com",
+        "address": "477 Damaris Oval",
+        "locationId": 2,
         "id": 4
     },
     {
         "name": "Hannah Hall",
-        "email": "hannah@hall.com",
+        "address": "14602 Schumm Crossroad",
+        "locationId": 3,
         "id": 5
     },
     {
         "name": "Emily Lemmon",
-        "email": "emily@lemmon.com",
+        "address": "2067 Abshire Road",
+        "locationId": 1,
         "id": 6
     },
     {
         "name": "Jordan Castelloe",
-        "email": "jordan@castelloe.com",
+        "address": "42368 Alford River",
+        "locationId": 2,
         "id": 7
     },
     {
         "name": "Leah Gwin",
-        "email": "leah@gwin.com",
+        "address": "997 Jude Haven",
+        "locationId": 1,
         "id": 8
     },
     {
         "name": "Caitlin Stein",
-        "email": "caitlin@stein.com",
+        "address": "9480 Sipes Forest",
+        "locationId": 2,
         "id": 9
     },
     {
         "name": "Greg Korte",
-        "email": "greg@korte.com",
+        "address": "083 Alex Walks",
+        "locationId": 3,
         "id": 10
     },
     {
         "name": "Charisse Lambert",
-        "email": "charisse@lambert.com",
+        "address": "14560 Schinner Knoll",
+        "locationId": 1,
         "id": 11
     },
     {
         "name": "Madi Peper",
-        "email": "madi@peper.com",
+        "address": "04592 Ryan Field",
+        "locationId": 2,
         "id": 12
     },
     {
         "name": "Jenna Solis",
-        "email": "jenna@solis.com",
+        "address": "2456 Norberto Mission",
+        "locationId": 1,
         "id": 14
     },
     {
         "name": "Eric \"Macho Man\" Taylor",
-        "email": "macho@man.com",
-        "id": 22
+        "address": "0209 Harvey Mission",
+        "locationId": 3,
+        "id": 15
     }
 ]
 
@@ -88,3 +102,19 @@ def get_single_employee(id):
             requested_employee = employee
 
     return requested_employee
+
+def create_employee(employee):
+    # Get the id value of the last employee in the list
+    max_id = EMPLOYEES[-1]["id"]
+
+    # Add 1 to whatever that number is
+    new_id = max_id + 1
+
+    # Add an `id` property to the employee dictionary
+    employee["id"] = new_id
+
+    # Add the employee dictionary to the list
+    EMPLOYEES.append(employee)
+
+    # Return the dictionary with `id` property added
+    return employee
