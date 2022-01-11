@@ -2,36 +2,43 @@ CUSTOMERS = [
     {
         "id": 1,
         "name": "Ryan Tanay",
-        "email": "ryan@tanay.com"
+        "address": "002 Smitham Trail",
+        "locationId": 1
     },
     {
         "id": 2,
         "name": "Emma Beaton",
-        "email": "emma@beaton.com"
+        "address": "590 Tia Throughway",
+        "locationId": 2
     },
     {
         "id": 3,
         "name": "Dani Adkins",
-        "email": "dani@adkins.com"
+        "address": "903 Thea Coves",
+        "locationId": 1
     },
     {
         "id": 4,
         "name": "Adam Oswalt",
-        "email": "adam@oswalt.com"
+        "address": "80019 Weimann Falls",
+        "locationId": 2
     },
     {
         "id": 5,
         "name": "Fletcher Bangs",
-        "email": "flangs@bangs.com"
+        "address": "925 Jillian Motorway",
+        "locationId": 3
     },
     {
         "id": 6,
         "name": "Angela Lee",
-        "email": "lee@lee.com"
+        "address": "9948 Jennings Plain",
+        "locationId": 1
     },
     {
         "name": "mike mike",
-        "email": "m@m.com",
+        "address": "6504 Jackie Curve",
+        "locationId": 2,
         "id": 7
     }
 ]
@@ -53,3 +60,19 @@ def get_single_customer(id):
             requested_customer = customer
 
     return requested_customer
+
+def create_customer(customer):
+    # Get the id value of the last customer in the list
+    max_id = CUSTOMERS[-1]["id"]
+
+    # Add 1 to whatever that number is
+    new_id = max_id + 1
+
+    # Add an `id` property to the customer dictionary
+    customer["id"] = new_id
+
+    # Add the customer dictionary to the list
+    CUSTOMERS.append(customer)
+
+    # Return the dictionary with `id` property added
+    return customer

@@ -19,76 +19,6 @@ ANIMALS = [
         "species": "Cat",
         "locationId": 2,
         "customerId": 1
-    },
-    {
-        "id": 4,
-        "name": "Doodles",
-        "species": "German Shepherd",
-        "locationId": 1,
-        "customerId": 15
-    },
-    {
-        "id": 5,
-        "name": "Angus",
-        "species": "Dalmatian 👾",
-        "locationId": 1,
-        "customerId": 16
-    },
-    {
-        "id": 6,
-        "name": "Henley",
-        "species": "Carolina Retriever 🚒",
-        "locationId": 1,
-        "customerId": 17
-    },
-    {
-        "id": 7,
-        "name": "Derkins",
-        "species": "Shih tzu 👿",
-        "locationId": 2,
-        "customerId": 18
-    },
-    {
-        "id": 8,
-        "name": "Checkers",
-        "species": "Bulldog",
-        "locationId": 1,
-        "customerId": 19
-    },
-    {
-        "name": "Sawyer",
-        "species": "Lollie",
-        "id": 9,
-        "locationId": 2,
-        "customerId": 20
-    },
-    {
-        "name": "Gypsy",
-        "species": "Miniature Schnauzer",
-        "id": 10,
-        "locationId": 1,
-        "customerId": 21
-    },
-    {
-        "name": "Zipper",
-        "species": "Terrier",
-        "locationId": 2,
-        "customerId": 22,
-        "id": 11
-    },
-    {
-        "name": "Blue",
-        "species": "Hound dog",
-        "locationId": 2,
-        "customerId": 16,
-        "id": 12
-    },
-    {
-        "name": "Bugle",
-        "species": "Beagle",
-        "locationId": 1,
-        "customerId": 17,
-        "id": 13
     }
 ]
 
@@ -109,3 +39,19 @@ def get_single_animal(id):
             requested_animal = animal
 
     return requested_animal
+
+def create_animal(animal):
+    # Get the id value of the last animal in the list
+    max_id = ANIMALS[-1]["id"]
+
+    # Add 1 to whatever that number is
+    new_id = max_id + 1
+
+    # Add an `id` property to the animal dictionary
+    animal["id"] = new_id
+
+    # Add the animal dictionary to the list
+    ANIMALS.append(animal)
+
+    # Return the dictionary with `id` property added
+    return animal
