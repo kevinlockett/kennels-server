@@ -3,41 +3,48 @@ CUSTOMERS = [
         "id": 1,
         "name": "Ryan Tanay",
         "address": "002 Smitham Trail",
+        "vip_customer": "false",
         "locationId": 1
     },
     {
         "id": 2,
         "name": "Emma Beaton",
         "address": "590 Tia Throughway",
+        "vip_customer": "false",
         "locationId": 2
     },
     {
         "id": 3,
         "name": "Dani Adkins",
         "address": "903 Thea Coves",
+        "vip_customer": "false",
         "locationId": 1
     },
     {
         "id": 4,
         "name": "Adam Oswalt",
         "address": "80019 Weimann Falls",
+        "vip_customer": "false",
         "locationId": 2
     },
     {
         "id": 5,
         "name": "Fletcher Bangs",
         "address": "925 Jillian Motorway",
+        "vip_customer": "false",
         "locationId": 3
     },
     {
         "id": 6,
         "name": "Angela Lee",
         "address": "9948 Jennings Plain",
+        "vip_customer": "false",
         "locationId": 1
     },
     {
         "name": "mike mike",
         "address": "6504 Jackie Curve",
+        "vip_customer": "false",
         "locationId": 2,
         "id": 7
     }
@@ -91,3 +98,13 @@ def delete_customer(id):
     # If the customer was found, use pop(int) to remove it from list
     if customer_index >= 0:
         CUSTOMERS.pop(customer_index)
+        
+# Replacing Dictionary with New One
+def update_customer(id, new_customer):
+    # Iterate the CUSTOMERS list, but use enumerate() so that
+    # you can access the index value of each item.
+    for index, customer in enumerate(CUSTOMERS):
+        if customer["id"] == id:
+            # Found the customer. Update the value.
+            CUSTOMERS[index] = new_customer
+            break

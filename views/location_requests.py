@@ -1,11 +1,13 @@
 LOCATIONS = [
     {
         "id": 1,
-        "name": "Nashville North"
+        "name": "Nashville North",
+        "hours": "9am to 5pm"
     },
     {
         "id": 2,
-        "name": "Nashville South"
+        "name": "Nashville South",
+        "hours": "9am to 5pm"
     }
 ]
 
@@ -57,3 +59,13 @@ def delete_location(id):
     # If the location was found, use pop(int) to remove it from list
     if location_index >= 0:
         LOCATIONS.pop(location_index)
+        
+# Replacing Dictionary with New One
+def update_location(id, new_location):
+    # Iterate the LOCATIONS list, but use enumerate() so that
+    # you can access the index value of each item.
+    for index, location in enumerate(LOCATIONS):
+        if location["id"] == id:
+            # Found the location. Update the value.
+            LOCATIONS[index] = new_location
+            break
