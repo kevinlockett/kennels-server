@@ -4,48 +4,48 @@ CUSTOMERS = [
         "name": "Ryan Tanay",
         "address": "002 Smitham Trail",
         "vip_customer": "false",
-        "locationId": 1
+        "location_id": 1
     },
     {
         "id": 2,
         "name": "Emma Beaton",
         "address": "590 Tia Throughway",
         "vip_customer": "false",
-        "locationId": 2
+        "location_id": 2
     },
     {
         "id": 3,
         "name": "Dani Adkins",
         "address": "903 Thea Coves",
         "vip_customer": "false",
-        "locationId": 1
+        "location_id": 1
     },
     {
         "id": 4,
         "name": "Adam Oswalt",
         "address": "80019 Weimann Falls",
         "vip_customer": "false",
-        "locationId": 2
+        "location_id": 2
     },
     {
         "id": 5,
         "name": "Fletcher Bangs",
         "address": "925 Jillian Motorway",
         "vip_customer": "false",
-        "locationId": 3
+        "location_id": 3
     },
     {
         "id": 6,
         "name": "Angela Lee",
         "address": "9948 Jennings Plain",
         "vip_customer": "false",
-        "locationId": 1
+        "location_id": 1
     },
     {
         "name": "mike mike",
         "address": "6504 Jackie Curve",
         "vip_customer": "false",
-        "locationId": 2,
+        "location_id": 2,
         "id": 7
     }
 ]
