@@ -85,8 +85,8 @@ def get_single_animal(id):
             a.name,
             a.breed,
             a.status,
-            a.customer_id,
-            a.location_id
+            a.location_id,
+            a.customer_id
         FROM Animal a
         WHERE a.id = ?
         """, ( id, ))
@@ -96,8 +96,8 @@ def get_single_animal(id):
 
         # Create an animal instance from the current row
         animal = Animal(data['id'], data['name'], data['breed'],
-                            data['status'], data['customer_id'],
-                            data['location_id'])
+                            data['status'], data['location_id'],
+                            data['customer_id'])
 
         return json.dumps(animal.__dict__)
     
@@ -114,8 +114,8 @@ def get_animals_by_location(location_id):
             a.name,
             a.breed,
             a.status,
-            a.customer_id,
-            a.location_id
+            a.location_id,
+            a.customer_id
         from Animal a
         WHERE a.location_id = ?
         """, ( location_id, ))
@@ -124,7 +124,7 @@ def get_animals_by_location(location_id):
         dataset = db_cursor.fetchall()
 
         for row in dataset:
-            animal = Animal(row['id'], row['name'], row['breed'], row['status'], row['customer_id'], row['location_id'])
+            animal = Animal(row['id'], row['name'], row['breed'], row['status'], row['location_id'], row['customer_id'])
             animals.append(animal.__dict__)
 
     return json.dumps(animals)
@@ -142,8 +142,8 @@ def get_animals_by_status(status):
             a.name,
             a.breed,
             a.status,
-            a.customer_id,
-            a.location_id
+            a.location_id,
+            a.customer_id
         from Animal a
         WHERE a.status = ?
         """, ( status, ))
@@ -152,7 +152,7 @@ def get_animals_by_status(status):
         dataset = db_cursor.fetchall()
 
         for row in dataset:
-            animal = Animal(row['id'], row['name'], row['breed'], row['status'], row['customer_id'], row['location_id'])
+            animal = Animal(row['id'], row['name'], row['breed'], row['status'], row['location_id'], row['customer_id'])
             animals.append(animal.__dict__)
 
     return json.dumps(animals)
@@ -186,10 +186,29 @@ def delete_animal(id):
         
 # Replacing Dictionary with New One
 def update_animal(id, new_animal):
-    # Iterate the ANIMALS list, but use enumerate() so that
-    # you can access the index value of each item.
-    for index, animal in enumerate(ANIMALS):
-        if animal["id"] == id:
-            # Found the animal. Update the value.
-            ANIMALS[index] = new_animal
-            break
+    with sqlite3.connect("./kennel.sqlite3") as conn:
+        db_cursor = conn.cursor()
+
+        db_cursor.execute("""
+        UPDATE Animal
+            SET
+                name = ?,
+                breed = ?,
+                status = ?,
+                location_id = ?,
+                customer_id = ?
+        WHERE id = ?
+        """, (new_animal['name'], new_animal['breed'],
+              new_animal['status'], new_animal['location_id'],
+              new_animal['customer_id'], id ))
+
+        # Were any rows affected?
+        # Did the client send an `id` that exists?
+        rows_affected = db_cursor.rowcount
+
+    if rows_affected == 0:
+        # Forces 404 response by main module
+        return False
+    else:
+        # Forces 204 response by main module
+        return True
