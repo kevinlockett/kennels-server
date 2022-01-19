@@ -17,7 +17,7 @@ LOCATIONS = [
 
 def get_all_locations():
     # Open a connection to the database
-    with sqlite3.connect("./kennel.db") as conn:
+    with sqlite3.connect("./kennel.sqlite3") as conn:
 
         # Just use these. It's a Black Box.
         conn.row_factory = sqlite3.Row
@@ -54,7 +54,7 @@ def get_all_locations():
 
 # Function with a single parameter
 def get_single_location(id):
-    with sqlite3.connect("./kennel.db") as conn:
+    with sqlite3.connect("./kennel.sqlite3") as conn:
         conn.row_factory = sqlite3.Row
         db_cursor = conn.cursor()
 
