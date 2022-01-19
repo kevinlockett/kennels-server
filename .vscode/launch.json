@@ -9,7 +9,8 @@
             "console": "integratedTerminal",
             "autoReload": {
                 "enable": true
-            }
+            },
+            // "preLaunchTask": "pipenvShell"
         }
     ]
 }

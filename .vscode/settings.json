@@ -6,5 +6,6 @@
             "name": "Python Kennels",
             "database": "kennel.db"
         }
-    ]
+    ],
+    "python.pythonPath": "/home/chlockett/.local/share/virtualenvs/kennels-server-dSj4GMgM/bin/python3"
 }

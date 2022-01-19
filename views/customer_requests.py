@@ -1,72 +1,126 @@
+import sqlite3
+import json
+from models import Customer
+
 CUSTOMERS = [
     {
         "id": 1,
         "name": "Ryan Tanay",
         "address": "002 Smitham Trail",
-        "vip_customer": "false",
-        "location_id": 1
+        "email": "Ryan@Tanay.com",
+        "password": "password"
     },
     {
         "id": 2,
         "name": "Emma Beaton",
         "address": "590 Tia Throughway",
-        "vip_customer": "false",
-        "location_id": 2
+        "email": "Emma@Beaton.com",
+        "password": "password"
     },
     {
         "id": 3,
         "name": "Dani Adkins",
         "address": "903 Thea Coves",
-        "vip_customer": "false",
-        "location_id": 1
+        "email": "Dani@Adkins.com",
+        "password": "password"
     },
     {
         "id": 4,
         "name": "Adam Oswalt",
         "address": "80019 Weimann Falls",
-        "vip_customer": "false",
-        "location_id": 2
+        "email": "Adam@Oswalt.com",
+        "password": "password"
     },
     {
         "id": 5,
         "name": "Fletcher Bangs",
         "address": "925 Jillian Motorway",
-        "vip_customer": "false",
-        "location_id": 3
+        "email": "Fletcher@Bangs.com",
+        "password": "password"
     },
     {
         "id": 6,
         "name": "Angela Lee",
         "address": "9948 Jennings Plain",
-        "vip_customer": "false",
-        "location_id": 1
+        "email": "Angela@Lee.com",
+        "password": "password"
     },
     {
-        "name": "mike mike",
+        "name": "Emily Lemon",
         "address": "6504 Jackie Curve",
-        "vip_customer": "false",
-        "location_id": 2,
+        "email": "Emily@Lemon.com",
+        "password": "password",
         "id": 7
     }
 ]
 
 def get_all_customers():
-    return CUSTOMERS
+    # Open a connection to the database
+    with sqlite3.connect("./kennel.db") as conn:
+
+        # Just use these. It's a Black Box.
+        conn.row_factory = sqlite3.Row
+        db_cursor = conn.cursor()
+
+        # Write the SQL query to get the information you want
+        db_cursor.execute("""
+        SELECT
+            c.id,
+            c.name,
+            c.address,
+            c.email,
+            c.password
+        FROM Customer c
+        """)
+
+        # Initialize an empty list to hold all animal representations
+        customers = []
+
+        # Convert rows of data into a Python list
+        dataset = db_cursor.fetchall()
+
+        # Iterate list of data returned from database
+        for row in dataset:
+
+            # Create a customer instance from the current row.
+            # Note that the database fields are specified in
+            # exact order of the parameters defined in the
+            # Customer class above.
+            customer = Customer(row['id'], row['name'], row['address'],
+                            row['email'], row['password'])
+
+            customers.append(customer.__dict__)
+
+    # Use `json` package to properly serialize list as JSON
+    return json.dumps(customers)
 
 # Function with a single parameter
 def get_single_customer(id):
-    # Variable to hold the found customer, if it exists
-    requested_customer = None
+    with sqlite3.connect("./kennel.db") as conn:
+        conn.row_factory = sqlite3.Row
+        db_cursor = conn.cursor()
 
-    # Iterate the CUSTOMERS list above. Very similar to the
-    # for..of loops you used in JavaScript.
-    for customer in CUSTOMERS:
-        # Dictionaries in Python use [] notation to find a key
-        # instead of the dot notation that JavaScript used.
-        if customer["id"] == id:
-            requested_customer = customer
+        # Use a ? parameter to inject a variable's value
+        # into the SQL statement.
+        db_cursor.execute("""
+        SELECT
+            c.id,
+            c.name,
+            c.address,
+            c.email,
+            c.password
+        FROM Customer c
+        WHERE c.id = ?
+        """, ( id, ))
 
-    return requested_customer
+        # Load the single result into memory
+        data = db_cursor.fetchone()
+
+        # Create a customer instance from the current row
+        customer = Customer(data['id'], data['name'], data['address'],
+                            data['email'], data['password'])
+
+        return json.dumps(customer.__dict__)
 
 def create_customer(customer):
     # Get the id value of the last customer in the list
