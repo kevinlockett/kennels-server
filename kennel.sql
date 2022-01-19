@@ -74,3 +74,21 @@ SELECT * FROM Location;
 SELECT * FROM Animal;
 
 INSERT INTO `Animal` VALUES (null, "Daps", "Kennel", "Boxer", 2, 2);
+
+UPDATE Customer
+	SET password = 'password'
+	WHERE id = 1;
+
+UPDATE Employee
+	SET name = 'Madi Pepper'
+	WHERE id = 1;
+
+UPDATE Location
+	SET address = "64 Washington Heights"
+	WHERE name = "Nashville North";
+
+
+
+
+
+
