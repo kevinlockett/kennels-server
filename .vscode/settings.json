@@ -4,8 +4,10 @@
             "previewLimit": 50,
             "driver": "SQLite",
             "name": "Python Kennels",
-            "database": "kennel.db"
+            "database": "kennel.sqlite3"
         }
     ],
-    "python.pythonPath": "/home/chlockett/.local/share/virtualenvs/kennels-server-dSj4GMgM/bin/python3"
+    "python.pythonPath": "/home/chlockett/.local/share/virtualenvs/kennels-server-dSj4GMgM/bin/python3",
+    "python.pipenvPath": "/home/chlockett/.local/bin/pipenv",
+    "python.venvPath": "/home/chlockett/.local/share/virtualenvs"
 }

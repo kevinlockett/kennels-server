@@ -70,3 +70,5 @@ WHERE a.id = 4
 SELECT * FROM Customer;
 
 SELECT * FROM Location;
+
+SELECT * FROM Animal;
